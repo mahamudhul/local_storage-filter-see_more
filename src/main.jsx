@@ -11,6 +11,8 @@ import Header from './component/Header/Header';
 import Home from './component/Home/Home';
 import Applied from './component/Applied/Applied';
 import JobDetails from './component/FeaturedJobs/JobDetails';
+import { HelmetProvider } from 'react-helmet-async';
+import { Helmet } from 'react-helmet';
 
 const router = createBrowserRouter([
   {
@@ -21,6 +23,10 @@ const router = createBrowserRouter([
         path: '/',
         element: <Home></Home>
       },
+      // {
+      //   path: '/jobs', 
+      //   element: <Home></Home>
+      // },
       {
         path: '/applied',
         element: <Applied></Applied>,
@@ -37,6 +43,11 @@ const router = createBrowserRouter([
 
 createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    <RouterProvider router={router} />
+    <HelmetProvider>
+      <Helmet>
+        <title>Career Hub</title>
+      </Helmet>
+      <RouterProvider router={router} />
+    </HelmetProvider>
   </React.StrictMode>
 )

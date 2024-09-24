@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useLoaderData } from 'react-router-dom';
 import { getJobApplication } from '../../utility/localStorage';
+import { Helmet } from 'react-helmet';
 
 const Applied = () => {
     const jobs = useLoaderData();
@@ -50,6 +51,9 @@ const Applied = () => {
 
     return (
         <div>
+            <Helmet>
+                <title>Applied Jobs</title>
+            </Helmet>
             <h2 className='text-4xl font-bold text-center my-20'>Applied Jobs</h2>
 
             {/* filter btn */}

@@ -5,6 +5,7 @@ import { ToastContainer, toast } from 'react-toastify';
 
 import 'react-toastify/dist/ReactToastify.css';
 import { saveJobApplication } from '../../utility/localStorage';
+import { Helmet } from 'react-helmet';
 
 const JobDetails = () => {
     const jobs = useLoaderData();
@@ -15,7 +16,7 @@ const JobDetails = () => {
     const job = jobs.find(job => job.id === idIn);
     // console.log(job)
 
-    const { job_description, job_responsibility, educational_requirements, experiences, salary, job_title, contact_information } = job;
+    const { job_description, job_responsibility, educational_requirements, experiences, salary, job_title, contact_information, company_name } = job;
 
     // console.log(contact_information)
 
@@ -27,6 +28,9 @@ const JobDetails = () => {
 
     return (
         <div>
+            <Helmet>
+                <title>Jobs | {company_name}</title>
+            </Helmet>
             <h1 className='my-20 text-4xl text-slate-800'>Jobs Details</h1>
             <div className='grid grid-cols-4 gap-5'>
                 <div className='col-span-3 space-y-3'>
